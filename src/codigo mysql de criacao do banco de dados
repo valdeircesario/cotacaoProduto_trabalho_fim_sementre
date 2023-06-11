@@ -1,0 +1,26 @@
+CREATE TABLE Produto (
+  codigo INT PRIMARY KEY,
+  nome VARCHAR(255),
+  descricao VARCHAR(255),
+  preco DECIMAL(10,2)
+);
+
+
+CREATE TABLE estabelecimento (
+  cnpj INT PRIMARY KEY,
+  nomestabelecimento VARCHAR(255),
+  endereco VARCHAR(255),
+  telefone VARCHAR(20)
+);
+
+-
+CREATE TABLE Cotacao (
+  numero_cota INT PRIMARY KEY,
+  codigo INT,
+  cnpj INT, 
+  dataCotacao DATE,
+  precoCotado DECIMAL(10,2),
+  FOREIGN KEY (codigo) REFERENCES Produto(codigo),
+  FOREIGN KEY (cnpj) REFERENCES Fornecedor(cnpj)
+);
+
