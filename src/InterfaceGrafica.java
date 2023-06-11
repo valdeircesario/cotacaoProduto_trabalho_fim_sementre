@@ -14,6 +14,8 @@ public class InterfaceGrafica extends JFrame implements ActionListener {
     private final JTextField txtCnpj;
     private final JTextField txtEndereco;
     private final JTextField txtTelefone;
+    private final JButton btExcluirProduto;
+    private JButton btnexcluirestabelecimento = null;
     private JPanel panel;
     private JTextField txtCodigo;
     private JTextField txtNome;
@@ -21,20 +23,19 @@ public class InterfaceGrafica extends JFrame implements ActionListener {
     private JTextField txtPreco;
 
     private JTextField txtDescricao;
-    private JButton btnCriar;
+    private static JButton btnCriar;
     private JButton btnAtualizar;
     private JButton btnConsultar;
     private JButton btnCotacao;
 
     private Produto produto;
 
-    public InterfaceGrafica() {
-        // Configurações da janela
+    public InterfaceGrafica(JButton btnCriar) {
+        this.btnCriar = btnCriar;
         setTitle("MEU BANCO DE DADOS");
         setSize(750, 250);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Criação do painel
         panel = new JPanel();
 
         // Criação das informacoes de entrada de dados do produto;
@@ -63,11 +64,13 @@ public class InterfaceGrafica extends JFrame implements ActionListener {
 
 
         // Criação dos botões
+        btExcluirProduto = new JButton("excluir produto");
         btnCadastrar = new JButton("cadastrar produto");
         btnAtualizar = new JButton("Atualizar");
         btnConsultar = new JButton("Consultar");
         btnCotacao = new JButton("Fazer Cotação");
         btnEstabelecimento  = new JButton("cadastrar estabelecimento");
+        btnexcluirestabelecimento = new JButton("excluir estabelecimento");
 
         // Adiciona os componentes ao painel
         panel.add(lblCnpj);
@@ -87,24 +90,28 @@ public class InterfaceGrafica extends JFrame implements ActionListener {
         panel.add(lblPreco);
         panel.add(txtPreco);
         panel.add(btnCadastrar);
+        panel.add(btExcluirProduto);
         panel.add(btnAtualizar);
         panel.add(btnConsultar);
         panel.add(btnCotacao);
         panel.add((Component) btnEstabelecimento);
+        panel.add(btnexcluirestabelecimento);
 
-        // Adiciona o painel à janela
+
         add(panel);
 
-        // Adiciona os listeners de evento aos botões
+
+        btExcluirProduto.addActionListener(this);
         btnCadastrar.addActionListener(this);
         btnAtualizar.addActionListener(this);
         btnConsultar.addActionListener(this);
         btnCotacao.addActionListener(this);
         btnEstabelecimento.equals(this);
+        btnexcluirestabelecimento.addActionListener(this);
     }
 
     public static void main(String[] args) {
-        InterfaceGrafica interfaceGrafica = new InterfaceGrafica();
+        InterfaceGrafica interfaceGrafica = new InterfaceGrafica(btnCriar);
         interfaceGrafica.setVisible(true);
     }
 
@@ -120,12 +127,13 @@ public class InterfaceGrafica extends JFrame implements ActionListener {
             produto.cadastrarProduto();
         } else if(e.getSource() == btnEstabelecimento) {
             Label textCnpj = null;
-            int CNPJ = Integer.parseInt(textCnpj.getText());
+            int cnpj = Integer.parseInt(textCnpj.getText());
             Label txtNomEstabelecimento = null;
             String nomEstabelecimento = txtNomEstabelecimento.getText();
             String endereco = txtEndereco.getText();
             int telefone = Integer.parseInt((txtTelefone.getText()));
-            Estabelecimento.setnomestabelecimento(nomEstabelecimento);
+            Estabelecimento.setNomestabelecimento(nomEstabelecimento);
+            Estabelecimento.setCnpj(cnpj);
             Estabelecimento.setEndereco(endereco);
             Estabelecimento.setTelefone(telefone);
             Estabelecimento.atualizarProduto();
@@ -141,7 +149,7 @@ public class InterfaceGrafica extends JFrame implements ActionListener {
             produto.atualizarProduto();
         } else if (e.getSource() == btnConsultar) {
             int codigo = Integer.parseInt(txtCodigo.getText());
-            double preco;
+            double preco = produto.fazerCotacao();
             produto = new Produto(codigo, "", "","");
             produto.consultarProduto();
         } else if (e.getSource() == btnCotacao) {

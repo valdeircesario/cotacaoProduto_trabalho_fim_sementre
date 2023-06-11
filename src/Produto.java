@@ -7,11 +7,10 @@ public class Produto {
     public Produto(int codigo, String nome, String descricao, String preco) {
         this.codigo = codigo;
         this.nome = nome;
-        this.preco = this.preco;
+        this.preco = Double.parseDouble(preco);
         this.descricao = descricao;
     }
 
-    // Métodos para acessar os atributos (getters)
     public int getCodigo() {
         return codigo;
     }
@@ -28,7 +27,6 @@ public class Produto {
         return descricao;
     }
 
-    // Métodos para atualizar os atributos (setters)
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
@@ -53,14 +51,14 @@ public class Produto {
         this.codigo = codigo;
     }
 
+    //Esse código é um método chamado toString() que está sendo sobrescrito na classe atual.
+    // O método toString() é um método da classe Object em Java que converte um objeto em uma representação de string.
     @Override
     public String toString() {
-        return "Produto{" +
-                "codigo=" + codigo +
-                ", nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                '}';
+        return "Produto{" + "codigo=" + codigo + ", nome='" + nome + '\''
+                + ", descricao='" + descricao + '\'' + ", preco=" + preco + '}';
     }
+
 
 
     public void consultarProduto() {

@@ -1,3 +1,4 @@
+
 public class Estabelecimento {
     private String cnpj;
     private String nomeEstabelecimento;
@@ -11,11 +12,6 @@ public class Estabelecimento {
         this.telefone = telefone;
     }
 
-    public Estabelecimento(String cnpj, String rua_teste, String nome_estabelecimento) {
-    }
-
-    public static void setnomestabelecimento(String nomestabelecimento) {
-    }
 
     public static void setEndereco(String endereco) {
     }
@@ -26,14 +22,18 @@ public class Estabelecimento {
     public static void atualizarProduto() {
     }
 
+    public static void setCnpj(int cnpj) {
+    }
+
+    public static void setNomestabelecimento(String nomEstabelecimento) {
+    }
+
     public void cadastrarEstabelecimento() throws Exception {
         // Código para cadastrar o estabelecimento no banco de dados
         if (cnpj.isEmpty() || nomeEstabelecimento.isEmpty() || endereco.isEmpty() || telefone.isEmpty()) {
             throw new Exception("Todos os campos devem ser preenchidos.");
         }
 
-        // Implementação do cadastro no banco de dados
-        // ...
         System.out.println("Estabelecimento cadastrado com sucesso!");
     }
 
@@ -47,7 +47,8 @@ public class Estabelecimento {
         // ...
         System.out.println("Estabelecimento excluído com sucesso!");
     }
-
+    //Esse código é um método chamado toString() que está sendo sobrescrito na classe atual.
+    // O método toString() é um método da classe Object em Java que converte um objeto em uma representação de string.
     @Override
     public String toString() {
         return "Estabelecimento{" +
