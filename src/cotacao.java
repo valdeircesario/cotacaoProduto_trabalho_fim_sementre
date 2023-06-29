@@ -4,6 +4,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/*
+ * 
+ * BLIBIOTECAS JAVAS IMPORTADAS PARA EXECUÇÃO DESSE PROJETO 
+ */
+
 
 public class cotacao {
     private Connection conectarBancoDeDados() throws SQLException {
@@ -25,7 +30,7 @@ public class cotacao {
             statement.executeUpdate();
             System.out.println("Produto criado com sucesso!");
         } catch (SQLException e) {
-            System.out.println("Erro ao criar produto: " + e.getMessage());
+            System.out.println("Erro ao criar produto: " + e.getMessage()); // TRATAMENTO DE ERROS NA INTEGRAÇÃO
         }
     }
     public void excluirEstabelecimento(String cnpj) {
