@@ -4,6 +4,14 @@ O projeto "Cotação de Produto" foi desenvolvido como uma solução para gerenc
 
 ## Tecnologias Utilizadas
 
+<div style="display: inline_block"><br>
+   <img  align="center" alt="VAL-intelij" height="50" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg" >
+   <img align="center" alt="VAL-Java" height="50" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg">
+  <img align="center" alt="VAL-MySQL" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg">
+
+</div>
+<P></P>
+
 - **MySQL/MariaDB**: Banco de dados para armazenamento das informações dos produtos e cotações.
 - **Java**: Linguagem de programação utilizada para desenvolver a lógica do sistema.
 - **JSwing**: Biblioteca gráfica para a criação da interface do usuário.
